@@ -1,13 +1,16 @@
 import java.util.Arrays;
 
 public class Section2 {
-    // Solving P.set 1.1
+    // Solving P.set 1.1 (page 59)
     public static void main(String[] args) {
         try {
             // Testing P1's solution
             System.out.println(findMax(new int[]{1, 22, 3, 43, 12}));
 
-            // Testing P6's solution INCORRECT
+            // Testing P2's solution
+            System.out.println(Arrays.toString(findSmallestM(new int[]{0, 24, 74, 5, 13, 4}, 4)));
+
+            // Testing P6's solution
             System.out.println(Arrays.toString(findMaxAndMin(new int[]{17, 22, 34, 25, 12, 4, 0})));
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
@@ -17,7 +20,7 @@ public class Section2 {
         System.out.println(findIndex(13, new int[]{1, 3, 12, 15, 26}));
     }
 
-    // Problem 1: O(n)
+    // Problem 1: finding the maximum number in a list.
     public static int findMax(int[] arr) {
         if (arr.length == 0) throw new IllegalArgumentException("Array is empty");
         int max = arr[0];
@@ -29,7 +32,32 @@ public class Section2 {
         // Looking at the time complexity, we find that this has O(n) complexity in all cases.
     }
 
-    // TODO: problems 2-5
+    // TODO: problems 3-5
+
+    // P2: Finding the m smallest numbers.
+    public static int[] findSmallestM(int[] arr, int m) {
+        int[] res = new int[m];
+
+        if (arr.length < m || m == 0) throw new IllegalArgumentException("Array size can't be less than m");
+        if (arr.length == m) return arr;
+
+        int min = Integer.MAX_VALUE;
+        int minIndex = Integer.MAX_VALUE;
+
+        for (int i = 0; i < m; i++) {
+            min = Integer.MAX_VALUE;
+            for (int j = 0; j < arr.length; j++) {
+                if (arr[j] < min) {
+                    min = arr[j];
+                    minIndex = j;
+                }
+            }
+            arr[minIndex] = Integer.MAX_VALUE;
+            res[i] = min;
+        }
+
+        return res;
+    }
 
     // P6: Max AND Min in O(3/2n)
     public static int[] findMaxAndMin(int[] arr) {
