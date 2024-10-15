@@ -16,6 +16,9 @@ public class Section2 {
             System.out.println(e.getMessage());
         }
 
+        // Testing P3's solution
+        printTriplets(new int[] {12,32,42,123,42,65,99});
+
         // Test P7's solution
         System.out.println(findIndex(13, new int[]{1, 3, 12, 15, 26}));
     }
@@ -31,8 +34,6 @@ public class Section2 {
         return max;
         // Looking at the time complexity, we find that this has O(n) complexity in all cases.
     }
-
-    // TODO: problems 3-5
 
     // P2: Finding the m smallest numbers.
     public static int[] findSmallestM(int[] arr, int m) {
@@ -57,6 +58,24 @@ public class Section2 {
         }
 
         return res;
+    }
+
+    // P3: Printing all subsets of size 3
+    public static void printTriplets (int[] arr) {
+        if (arr.length <= 3) System.out.println(Arrays.toString(arr));
+
+        int[] subset = new int[3];
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                for (int k = j + 1; k < arr.length; k++) {
+                    subset[0] = arr[i];
+                    subset[1] = arr[j];
+                    subset[2] = arr[k];
+                    System.out.println(Arrays.toString(subset));
+                }
+            }
+        }
     }
 
     // P6: Max AND Min in O(3/2n)
@@ -88,10 +107,12 @@ public class Section2 {
         return new int[]{max, min};
     }
 
-    // P7 (task): getIndex of sorted array in O(nlog(n))
+    // TASK: getIndex of sorted array in O(nlog(n))
     public static int findIndex(int target, int[] arr) {
         if (arr[arr.length - 1] < target) return arr.length;
         if (arr[0] > target) return 0;
+
+        // A Binary Search algorithm is sufficient
 
         int start = 0, end = arr.length - 1, mid = (start + end) / 2;
 
