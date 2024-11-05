@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.io.*;
 
 public class Section1 {
-    public static void main (String[] args) throws FileNotFoundException {
+    public static void main (String[] args) {
         // P1 testing.
         String[] test1 = {"Hello", "how", "are", "you?"};
         String target1 = "are";

@@ -17,7 +17,7 @@ public class Section2 {
         }
 
         // Testing P3's solution
-        printTriplets(new int[] {12,32,42,123,42,65,99});
+        printTriplets(new int[]{12, 32, 42, 123, 42, 65, 99});
 
         // Test P7's solution
         System.out.println(findIndex(13, new int[]{1, 3, 12, 15, 26}));
@@ -61,7 +61,7 @@ public class Section2 {
     }
 
     // P3: Printing all subsets of size 3
-    public static void printTriplets (int[] arr) {
+    public static void printTriplets(int[] arr) {
         if (arr.length <= 3) System.out.println(Arrays.toString(arr));
 
         int[] subset = new int[3];
