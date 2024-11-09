@@ -4,7 +4,6 @@ public class Section4 {
     public static void main(String[] args) {
         // Topics discussed: Binary Search, Merge Sort, Quick Sort.
         // Approach utilized & discussed: Divide and Conquer.
-        // TODO: write all the algorithms mentioned in all chapters and evaluate their runtime
 
         // Testing task algorithm
         System.out.println(checkChar("hello", 'l', 0, 4));
@@ -13,6 +12,21 @@ public class Section4 {
         int[] test = new int[]{3, 2, 4, 12, 5};
         quickSort(test, 0, 4);
         System.out.println(Arrays.toString(test));
+        System.out.println(Arrays.toString(mergeSort(new int[]{3, 2, 1, 4, 5, 12, 9})));
+    }
+
+    // Merge Sort:
+    public static int[] mergeSort(int[] arr) {
+        int n = arr.length;
+
+        if (n == 2) { return Section3.mergeSorted(new int[] {arr[0]}, new int[] {arr[1]}); }
+
+        if (n > 1) {
+            int mid = (int) Math.floor(n / 2.0);
+            return Section3.mergeSorted(mergeSort(Arrays.copyOfRange(arr, 0, mid+1)), Arrays.copyOfRange(arr, mid+1, n));
+        }
+
+        return arr;
     }
 
     // Quick Sort:
