@@ -9,10 +9,10 @@ public class Section4 {
         System.out.println(checkChar("hello", 'l', 0, 4));
 
         // Testing quickSort implementation
-        int[] test = new int[]{3, 2, 4, 12, 5};
+        int[] test = new int[]{3, 2, 4, 12, 5, 13, 7};
         quickSort(test, 0, 4);
         System.out.println(Arrays.toString(test));
-        System.out.println(Arrays.toString(mergeSort(new int[]{3, 2, 1, 4, 5, 12, 9})));
+        System.out.println(Arrays.toString(mergeSort(test)));
     }
 
     // Merge Sort:
