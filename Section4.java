@@ -21,7 +21,7 @@ public class Section4 {
 
         if (n == 2) { return Section3.mergeSorted(new int[] {arr[0]}, new int[] {arr[1]}); }
 
-        if (n > 1) {
+        if (n > 2) {
             int mid = (int) Math.floor(n / 2.0);
             return Section3.mergeSorted(mergeSort(Arrays.copyOfRange(arr, 0, mid+1)), Arrays.copyOfRange(arr, mid+1, n));
         }
